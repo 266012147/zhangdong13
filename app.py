@@ -685,7 +685,7 @@ if st.session_state.current_step >= 5 and st.session_state.plate_analysis_done:
     # 导出按钮
     if export_format == "Excel":
         output = io.BytesIO()
-        with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
             st.session_state.cleaned_df.to_excel(writer, index=False, sheet_name='清洗结果')
             st.session_state.analyzed_df.to_excel(writer, index=False, sheet_name='分析结果')
             
